@@ -20,17 +20,13 @@ def signup(request):
 def index(request):
     return render(request, "index.html")
 
-
 def songs(request):
-    # songs = {"songs":[]}
-    # return render(request, "songs.html", {"songs": [insert list here]})
-    pass
-
+    songs = req.get("https://songs-sn-labs-ksundararaja.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud/songs").json()
+    return render(request, "songs.html", {"songs": songs["songs"]})
 
 def photos(request):
-    # photos = []
-    # return render(request, "photos.html", {"photos": photos})
-    pass
+    photos = req.get("https://pictures.18v3vtdr5yco.us-south.codeengine.appdomain.cloud/picture").json()
+    return render(request, "photos.html", {"photos": photos})
 
 def login_view(request):
     pass
